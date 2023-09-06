@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 )
 
 func main() {
@@ -13,7 +14,12 @@ func main() {
 	fmt.Scan(&M)
 
 	players := make([]int, N)
-	for i := range players {
-		players[i] = M
+	dice := make([]int, M)
+
+	for i := range dice {
+		dice[i] = rand.Intn(6) + 1
 	}
+
+	fmt.Println("Pemain:", players)
+	fmt.Println("Dadu awal:", dice)
 }

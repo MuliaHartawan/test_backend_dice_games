@@ -20,6 +20,27 @@ func main() {
 		dice[i] = rand.Intn(6) + 1
 	}
 
-	fmt.Println("Pemain:", players)
-	fmt.Println("Dadu awal:", dice)
+	round := 1
+for {
+    fmt.Printf("==================\nGiliran %d lempar dadu:\n", round)
+
+    for i := range players {
+        if players[i] == 0 {
+            continue
+        }
+
+        // Lepaskan dadu dari pemain
+        playerDice := make([]int, players[i])
+        copy(playerDice, dice)
+
+        // TODO: Implementasi lemparan dadu dan evaluasi hasilnya
+
+        fmt.Printf("Pemain #%d (%d): %v\n", i+1, players[i], playerDice)
+    }
+
+    // TODO: Cek apakah permainan berakhir
+    // TODO: Jika hanya ada satu pemain dengan dadu, umumkan pemenang dan akhiri permainan
+
+    round++
+}
 }

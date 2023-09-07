@@ -58,8 +58,20 @@ func main() {
 
 		}
 
-		// TODO: Cek apakah permainan berakhir
-		// TODO: Jika hanya ada satu pemain dengan dadu, umumkan pemenang dan akhiri permainan
+		remainingPlayers := 0
+		winnerIndex := -1
+		for i, player := range players {
+			if player > 0 {
+				remainingPlayers++
+				winnerIndex = i
+			}
+		}
+
+		if remainingPlayers == 1 {
+			fmt.Printf("Game berakhir karena hanya pemain #%d yang memiliki dadu.\n", winnerIndex+1)
+			fmt.Printf("Game dimenangkan oleh pemain #%d karena memiliki poin lebih banyak dari pemain lainnya.\n", winnerIndex+1)
+			break
+		}
 
 		round++
 	}
